@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-import Authenfication.views
+from Authenfication.views import connexion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.accueil, name='accueil' ),
+    path("login/", connexion, name="connexion"),
 ]
