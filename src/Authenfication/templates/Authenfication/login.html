@@ -1,20 +1,8 @@
-{% extends "base.html" %}
-{% block head %}
-<title> Login </title>
-{% endblock head %}
-{% block body %}
-
 <h1> Login toi ou inscrit toi</h1>
-
-
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Se connecter</button>
-  </form>
+    <button type="submit">Se connecter</button> 
+</form>
 
-{% if error %}
-    <p>{{ error }}</p>
-{% endif %}
   
-{% endblock body %}
