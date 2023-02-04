@@ -7,6 +7,15 @@
     {% block head %}{% endblock head %}
 </head>
 <body>
+  <nav>
+    {%  if user.is_authenticated %}
+    <p>Vous êtes connecté en tant que {{ request.user.username }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>
+    <a href="{% url 'accueil' %}">Accueil</a>
+     {% if request.user.role == "CREATOR" %}
+      <a href="{% url 'liste_utilisateurs' %}">Liste Utilisateurs</a>
+     {% endif %}
+    {% endif %}
+  </nav>
   {% block body %}{% endblock body %}
 </body>
 </html>

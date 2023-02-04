@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Détails utilisateur et note</title>
+{% endblock head %}
+{% block body %}
+<h1>Détails utilisateur</h1>
+<p>Nom d'utilisateur : {{ user.username }}</p>
+<h2>Historique de notes</h2>
+<ul>
+    {% for note in user.notes.all %}
+        <li>{{ note.text }} ({{ note.formatted_date }})</li>
+    {% endfor %}
+</ul>
+
+<h2>Ajouter une note</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enregistrer">
+</form>
+{% endblock body %}
