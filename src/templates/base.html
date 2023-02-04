@@ -13,9 +13,14 @@
     <a href="{% url 'accueil' %}">Accueil</a>
      {% if request.user.role == "CREATOR" %}
       <a href="{% url 'liste_utilisateurs' %}">Liste Utilisateurs</a>
+      <a href="{% url 'appointment_list' %}">Mes Rendez-Vous</a>
+     {% endif %}
+     {% if request.user.role == "Utilisateur" %}
+     <a href="{% url 'make_appointment' %}">Prendre Rendez-Vous</a>
      {% endif %}
     {% endif %}
   </nav>
   {% block body %}{% endblock body %}
 </body>
 </html>
+

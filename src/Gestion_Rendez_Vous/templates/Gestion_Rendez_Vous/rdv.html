@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Prendre rendez-vous</title>
+{% endblock head %}
+
+{% block body %}
+  <h2>Prise de rendez-vous</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+  </form>
+{% endblock body %}
