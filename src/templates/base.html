@@ -26,7 +26,7 @@
       <div class="dropdown">
         <button class="dropdown-toggle">{{ request.user.username }}<i class="fas fa-caret-down"></i></button>
         <div class="dropdown-content">
-          <a href="#" class="dropdown-item">Modifier mon profil</a>
+          <a href="{% url 'update' %}" class="dropdown-item">Modifier mon profil</a>
           <a href="{% url 'logout' %}" class="dropdown-item">Se déconnecter</a>
         </div>
       </div>

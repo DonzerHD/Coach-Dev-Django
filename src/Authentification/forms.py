@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from Authentification.models import User
 
 class LoginForm(forms.Form):
     email = forms.EmailField(label="Email")
@@ -12,3 +14,8 @@ class RegisterForm(forms.Form):
     
 class NoteForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea)
+    
+class UpdateForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']

@@ -81,5 +81,18 @@ def details_utilisateur(request, user_id):
     notes = Note.objects.filter(user=user)
     return render(request, 'Authentification/details_utilisateur.html', context={'user': user, 'form': form, 'notes': notes})
 
+    
+def update_profile(request):
+    if not request.user.is_authenticated:
+        return redirect('accueil')
+    if request.method == 'POST':
+        form = forms.UpdateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+        return redirect('accueil')
+    else:
+        form = forms.UpdateForm(instance=request.user)
+    return render(request, 'Authentification/modification_utilisateur.html', {'form': form})
+
 
 
