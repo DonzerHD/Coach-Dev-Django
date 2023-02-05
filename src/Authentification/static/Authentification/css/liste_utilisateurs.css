@@ -1,75 +1,78 @@
 .user-list-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   }
   
   .user-list-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
   }
   
   #user-list-search-form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 50%;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 1rem;
   }
   
   #user-list-search-form input[type="text"] {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid gray;
-    border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 60%;
   }
   
   #user-list-search-form input[type="submit"] {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: lightgray;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   }
   
   .user-list-all-btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: lightgray;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: underline;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
   }
   
   .user-list {
-    list-style: none;
-    width: 50%;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  width: 50%;
+  margin: 0;
+  padding: 0;
   }
   
   .user-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background-color: lightgray;
-    border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: lightgray;
+  border-radius: 5px;
   }
   
   .user-username {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
+  width: 60%;
   }
   
   .user-details-btn, .user-delete-btn {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: gray;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   }

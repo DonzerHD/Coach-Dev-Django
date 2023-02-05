@@ -17,7 +17,7 @@
   {%  if user.is_authenticated %}
        <a href="{% url 'accueil' %}" class="nav-link">Accueil</a>
        {% if request.user.role == "CREATOR" %}
-        <a href="{% url 'liste_utilisateurs' %}" class="nav-link">Liste Utilisateurs</a>
+        <a href="{% url 'liste_utilisateurs' %}" class="nav-link">Liste Clients</a>
         {% comment %} <a href="{% url 'appointment_list' %}">Mes Rendez-Vous</a> {% endcomment %}
        {% endif %}
        {% if request.user.role == "Utilisateur" %}

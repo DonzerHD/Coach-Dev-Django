@@ -57,3 +57,8 @@
   .benefits-list li {
     margin-bottom: 20px;
   }
+
+  p{
+    font-size: 20px;
+    margin-top: 10px;
+  }
