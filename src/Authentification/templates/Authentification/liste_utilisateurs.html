@@ -1,19 +1,28 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block head %}
 <title>Liste des utilisateurs</title>
+<link rel="stylesheet" href="{% static "Authentification/css/liste_utilisateurs.css" %}">
 {% endblock head %}
 
 {% block body %}
-<h1>Liste des utilisateurs</h1>
-<form action="{% url 'liste_utilisateurs' %}" method="get">
-<input type="text" name="q" value="{{ request.GET.q }}">
-<input type="submit" value="Rechercher">
-<a href="{% url 'liste_utilisateurs' %}">Tout afficher</a>
-</form>
-<ul>
-{% for user in users %}
-<li><p>{{ user.username }}</p><a href="{% url 'details_utilisateur' user.id %}">Details</a> <a href="{% url 'delete_user' user.id %}">Supprimer</a></li>
-{% endfor %}
-</ul>
-{% endblock body %}
+<div class="user-list-container">
+    <h1 class="user-list-title">Liste des clients</h1>
+    <form id="user-list-search-form" action="{% url 'liste_utilisateurs' %}" method="get">
+      <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Barre de recherche">
+      <input type="submit" value="Rechercher">
+      <a href="{% url 'liste_utilisateurs' %}" class="user-list-all-btn">Tout afficher</a>
+    </form>
+    <ul class="user-list">
+      {% for user in users %}
+        <li class="user-item">
+          <p class="user-username">{{ user.username }}</p>
+          <a class="user-details-btn" href="{% url 'details_utilisateur' user.id %}">Details</a>
+          <a class="user-delete-btn" href="{% url 'delete_user' user.id %}">Supprimer</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endblock body %}
