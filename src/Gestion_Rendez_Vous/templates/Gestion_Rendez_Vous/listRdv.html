@@ -6,22 +6,4 @@
 
 {% block body %}
 <h1>Liste des rendez-vous</h1>
-<table>
-    <tr>
-        <th>Date</th>
-        <th>Heure Debut</th>
-        <th>heure de fin estminé</th>
-        <th>Client</th>
-        <th>Sujet</th>
-    </tr>
-    {% for appointment in appointments %}
-    <tr>
-        <td>{{ appointment.date|date:"d-m-Y" }}</td>
-        <td>{{ appointment.time_debut|time:"H:i" }}</td>
-        <td>{{ appointment.time_fin|time:"H:i" }}</td>
-        <td>{{ appointment.client.username }}</td>
-        <td>{{ appointment.text }}</td>
-    </tr>
-    {% endfor %}
-</table>
 {% endblock body %}

@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+from Gestion_Rendez_Vous.views import create_appointment
 from .views import accueil
 from Authentification.views import login_page , logout_user , create_user, liste_utilisateurs , delete_user , details_utilisateur
-from Gestion_Rendez_Vous.views import appointment_list, make_appointment
 
 urlpatterns = [
    # path('admin/', admin.site.urls),
@@ -28,7 +29,7 @@ urlpatterns = [
     path('liste_utilisateur/', liste_utilisateurs , name='liste_utilisateurs'),
     path('delete_user/<int:user_id>/', delete_user, name='delete_user'),
     path('details_utilisateur/<int:user_id>/', details_utilisateur, name='details_utilisateur'),
-    path('rendez-vous/', make_appointment, name='make_appointment'),
-    path('liste_rdv/', appointment_list, name='appointment_list'),
+    path('rendez-vous/', create_appointment, name='make_appointment'),
+    # path('liste_rdv/', appointment_list, name='appointment_list'),
 ]
 

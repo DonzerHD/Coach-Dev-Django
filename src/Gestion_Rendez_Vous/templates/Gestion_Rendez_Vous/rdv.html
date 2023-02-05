@@ -5,10 +5,10 @@
 {% endblock head %}
 
 {% block body %}
-  <h2>Prise de rendez-vous</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enregistrer</button>
-  </form>
+    <h1>Prendre rendez-vous</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Prendre rendez-vous">
+    </form>
 {% endblock body %}

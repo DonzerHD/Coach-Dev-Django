@@ -1,15 +1,24 @@
 from django import forms
+from .models import Appointment
 import datetime
 
-from Gestion_Rendez_Vous.models import Appointment
+class AppointmentForm(forms.Form):
+    date = forms.DateField(widget=forms.SelectDateWidget())
+    time = forms.TimeField(widget=forms.Select(choices=[(f'{x}:00', f'{x}:00') for x in range(9, 17)]))
+    description = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}))
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get('date')
+        time = cleaned_data.get('time')
+        if date and time:
+            datetime_str = f"{date.strftime('%Y-%m-%d')} {time.strftime('%H:%M:%S')}"
+            datetime_obj = datetime.datetime.strptime(datetime_str, '%Y-%m-%d %H:%M:%S')
+            if Appointment.objects.filter(date=datetime_obj).exists():
+                raise forms.ValidationError("Un rendez-vous est déjà pris pour cette heure et ce jour.")
+            cleaned_data['datetime'] = datetime_obj
+        return cleaned_data
 
-class AppointmentForm(forms.ModelForm):
-    text = forms.CharField(label="formulaire l'objet de la séance", widget=forms.Textarea(attrs={'rows': 5, 'cols': 20}))
-    date = forms.ChoiceField(choices=[(date.strftime("%Y-%m-%d"), date.strftime("%Y-%m-%d")) for date in (datetime.date.today() + datetime.timedelta(n) for n in range(15))])
-    time_debut = forms.ChoiceField(choices=[(datetime.datetime.combine(datetime.date.today(), datetime.time(hour=hour, minute=minute)).strftime("%H:%M"), datetime.datetime.combine(datetime.date.today(), datetime.time(hour=hour, minute=minute)).strftime("%H:%M")) for hour, minute in [(9, 0), (9, 50), (10, 40), (11, 30) , (13, 30), (14, 20), (15, 10), (16, 0)]])
-    class Meta:
-        model = Appointment
-        fields = ['date', 'time_debut' , 'text']
-        widgets = {
-            'time_debut': forms.Select(attrs={'type': 'time'}),
-        }
+
+
+
