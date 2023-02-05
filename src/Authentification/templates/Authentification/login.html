@@ -1,16 +1,21 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head %}
-    <title>Connexion</title>
+<title>Connexion</title>
+<link rel="stylesheet" href="{% static "Authentification/css/login.css" %}">
 {% endblock head %}
 
 {% block body %}
-<p>Pour accéder au site, vous devez vous connecter.</p>
-<p>{{ message }}</p>
-<form method="post">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit" >Se connecter</button>
-    <a href="{% url 'create_user' %}">Création compte</a>
-</form>
+
+<div class="login-container">
+  <h1 class="login-title">Connexion</h1>
+  <p class="message">{{ message }}</p>
+  <form method="post" id="login-form">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <button type="submit" class="login-btn">Se connecter</button>
+      <a href="{% url 'create_user' %}" class="create-account-link">Créer un compte</a>
+  </form>
+</div>
 {% endblock body %}

@@ -1,10 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head %}
-    <title>Page d'accueil</title>
+<title>Page d'accueil du coach personnel</title>
+<link rel="stylesheet" href="{% static "css/accueil.css" %}">
 {% endblock head %}
 
 {% block body %}
-    <h1>Bienvenue sur ma page d'accueil</h1>
-    <p>Ceci est le contenu de ma page d'accueil.</p>
+<header>
+<h1 class="header-title">Bienvenue ma page d'accueil</h1>
+</header>
+<main id="home-main">
+<section class="intro-section">
+<h2 class="section-title">Présentation du site</h2>
+<p>Notre site est dédié à vous aider à atteindre vos objectifs de santé et de forme physique. Avec l'aide de notre coach personnel expérimenté, vous recevrez un suivi personnalisé et des plans d'entraînement adaptés à vos besoins et objectifs uniques.</p>
+<img src="{% static 'images/image_accueil.jpg' %}" alt="Image de présentation du site" class="intro-img">
+</section>
+<section class="benefits-section">
+<h2 class="section-title">Les avantages d'avoir un coach personnel</h2>
+<ul class="benefits-list">
+<li>Programme d'entraînement personnalisé</li>
+<li>Suivi régulier pour vous motiver</li>
+<li>Correction de votre technique d'exercice pour une meilleure performance et moins de risque de blessure</li>
+<li>Adaptation en fonction de vos progrès et objectifs</li>
+<li> Conseils sur l'alimentation pour atteindre vos objectifs plus rapidement</li>
+</ul>
+</section>
+</main>
 {% endblock body %}

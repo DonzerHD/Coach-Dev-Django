@@ -9,21 +9,30 @@
     
     {% block head %}{% endblock head %}
 </head>
-<body>
-  <nav>
-    {%  if user.is_authenticated %}
-    <p>Vous êtes connecté en tant que {{ request.user.username }}. <a href="{% url 'logout' %}">Se déconnecter</a></p>
-    <a href="{% url 'accueil' %}">Accueil</a>
-     {% if request.user.role == "CREATOR" %}
-      <a href="{% url 'liste_utilisateurs' %}">Liste Utilisateurs</a>
-      {% comment %} <a href="{% url 'appointment_list' %}">Mes Rendez-Vous</a> {% endcomment %}
-     {% endif %}
-     {% if request.user.role == "Utilisateur" %}
-     <a href="{% url 'make_appointment' %}">Prendre Rendez-Vous</a>
-     {% endif %}
-    {% endif %}
-  </nav>
-  {% block body %}{% endblock body %}
-</body>
-</html>
+  <body>
+    <nav class="navbar">
+      <a href="{% url 'accueil' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Logo" id="logo">
+      </a>
+  {%  if user.is_authenticated %}
+       <a href="{% url 'accueil' %}" class="nav-link">Accueil</a>
+       {% if request.user.role == "CREATOR" %}
+        <a href="{% url 'liste_utilisateurs' %}" class="nav-link">Liste Utilisateurs</a>
+        {% comment %} <a href="{% url 'appointment_list' %}">Mes Rendez-Vous</a> {% endcomment %}
+       {% endif %}
+       {% if request.user.role == "Utilisateur" %}
+       <a href="{% url 'make_appointment' %}" class="nav-link">Prendre Rendez-Vous</a>
+       {% endif %}
+      <div class="dropdown">
+        <button class="dropdown-toggle">{{ request.user.username }}<i class="fas fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="#" class="dropdown-item">Modifier mon profil</a>
+          <a href="{% url 'logout' %}" class="dropdown-item">Se déconnecter</a>
+        </div>
+      </div>
+  {% endif %}
+    </nav>
+    {% block body %}{% endblock body %}
+  </body>
+  </html>
 
