@@ -12,9 +12,9 @@ def create_appointment(request):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             appointment = Appointment(
-                coach_id=8,
+                coach_id=31,
                 client=request.user,
-                date=cleaned_data['datetime'],
+                date=cleaned_data['date'],
                 description=cleaned_data['description']
             )
             appointment.save()

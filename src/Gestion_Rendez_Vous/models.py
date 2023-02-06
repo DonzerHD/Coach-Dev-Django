@@ -3,7 +3,11 @@ from django.db import models
 from Authentification.models import User
 
 class Appointment(models.Model):
-    coach = models.ForeignKey(User, on_delete=models.CASCADE, related_name='appointments', default=8)
-    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name='my_appointments')
-    date = models.DateTimeField(auto_now=False, auto_now_add=False)
-    description = models.TextField(max_length=500, blank=True)
+    date = models.DateTimeField(verbose_name="Date et heure du rendez-vous")
+    client = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Patient")
+    coach = models.ForeignKey(User, on_delete=models.CASCADE, related_name='Docteur', default=31)
+    description = models.TextField(verbose_name="Description", blank=True)
+
+    class Meta:
+        verbose_name = "Rendez-vous"
+        verbose_name_plural = "Rendez-vous"
