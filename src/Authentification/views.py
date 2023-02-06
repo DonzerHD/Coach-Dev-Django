@@ -38,8 +38,12 @@ def create_user(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             role = form.cleaned_data['role']
+            born = form.cleaned_data['born']
+            nom = form.cleaned_data['nom']
             user = User.objects.create_user(username = username , email=email, password=password)
             user.role = role
+            user.born = born
+            user.nom = nom
             user.save()
             return redirect('login')
     return render(request, 'Authentification/create_user.html', context={'form': form})

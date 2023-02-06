@@ -4,13 +4,14 @@ from django.db import models
 
 class User(AbstractUser):
     
-    username = models.CharField(max_length=150, unique=False)
+    username = models.CharField(max_length=150, unique=False , verbose_name='Prenom')
     email = models.EmailField(unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-    profile_photo = models.ImageField(verbose_name='Photo de profil')
     role = models.CharField(max_length=30 , verbose_name='Rôle')
+    nom = models.CharField(max_length=150, unique=False, verbose_name='Nom' , default='Nom non donnée')
+    born = models.DateField(verbose_name='Date de naissance' , default=None, null=True, blank=True)
     
 class Note(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notes')

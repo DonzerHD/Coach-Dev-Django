@@ -2,13 +2,15 @@
 {% load static %}
 
 {% block head %}
-<title>Détails utilisateur et note</title>
+<title>Détails client et notes</title>
 <link rel="stylesheet" href="{% static "Authentification/css/details_utilisateur.css" %}">
 {% endblock head %}
 {% block body %}
 <div id="user-details-container">
-    <h1 class="user-details-title">Détails utilisateur</h1>
-    <p class="user-username">Nom d'utilisateur : {{ user.username }}</p>
+    <h1 class="user-details-title">Détails Clients</h1>
+    <p class="user-username">Prénom : {{ user.username }}</p>
+    <p class="user-username">Nom : {{ user.nom }}</p>
+    <p class="user-username">Date de naissance : {{ user.born }}</p>
     <h2 class="user-history-title">Historique de notes</h2>
     <ul class="user-notes-history">
       {% for note in user.notes.all %}
