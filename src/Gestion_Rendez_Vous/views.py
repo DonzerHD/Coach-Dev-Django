@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 from Authentification.models import User
@@ -22,3 +23,7 @@ def create_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'Gestion_Rendez_Vous/rdv.html', {'form': form})
+
+def liste_appointment(request):
+    appointments = Appointment.objects.all()
+    return render(request, 'Gestion_Rendez_Vous/listRdv.html', {'appointments': appointments})
