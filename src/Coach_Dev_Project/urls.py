@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf import settings
-from django.conf.urls.static import static
 
-from Gestion_Rendez_Vous.views import create_appointment
+from Gestion_Rendez_Vous.views import create_appointment , liste_appointment , delete_appointment
 from .views import accueil
 from Authentification.views import login_page , logout_user , create_user, liste_utilisateurs , delete_user , details_utilisateur , update_profile
 
@@ -33,6 +31,7 @@ urlpatterns = [
     path('details_utilisateur/<int:user_id>/', details_utilisateur, name='details_utilisateur'),
     path('rendez-vous/', create_appointment, name='make_appointment'),
     path('update/', update_profile, name='update'),
-    # path('liste_rdv/', appointment_list, name='appointment_list'),
+    path('liste_rdv/', liste_appointment, name='appointment_list'),
+    path("delete_rdv/<int:appointment_id>/", delete_appointment, name="delete_appointment")
 ]
 

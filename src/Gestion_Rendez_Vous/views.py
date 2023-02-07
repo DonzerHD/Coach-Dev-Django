@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 from Authentification.models import User
@@ -12,9 +13,9 @@ def create_appointment(request):
         if form.is_valid():
             cleaned_data = form.cleaned_data
             appointment = Appointment(
-                coach_id=8,
+                coach_id=31,
                 client=request.user,
-                date=cleaned_data['datetime'],
+                date=cleaned_data['date'],
                 description=cleaned_data['description']
             )
             appointment.save()
@@ -22,3 +23,12 @@ def create_appointment(request):
     else:
         form = AppointmentForm()
     return render(request, 'Gestion_Rendez_Vous/rdv.html', {'form': form})
+
+def liste_appointment(request):
+    appointments = Appointment.objects.all()
+    return render(request, 'Gestion_Rendez_Vous/listRdv.html', {'appointments': appointments})
+
+def delete_appointment(request, appointment_id):
+    appointment = Appointment.objects.get(id=appointment_id)
+    appointment.delete()
+    return redirect('appointment_list')
