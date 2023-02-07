@@ -13,6 +13,6 @@ class Appointment(models.Model):
     class Meta:
         verbose_name = "Rendez-vous"
         verbose_name_plural = "Rendez-vous"
-        
+    
     def formatted_date(self):
         return format_datetime(self.date, locale='fr_FR', format='dd MMMM YYYY à HH\'h\'mm')
