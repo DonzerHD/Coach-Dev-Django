@@ -6,4 +6,22 @@
 
 {% block body %}
 <h1>Liste des rendez-vous</h1>
+<table>
+    <tr>
+        <th>Date et heure</th>
+        <th>Patient</th>
+        <th>Nom</th>
+        <th>Description</th>
+    </tr>
+    {% for appointment in appointments %}
+        <tr>
+            <td>{{ appointment.formatted_date }}</td>
+            <td>{{ appointment.client.username }}</td>
+            <td>{{ appointment.client.nom }}</td>
+            <td>{{ appointment.description }}</td>
+            <td><a href="{% url 'delete_appointment' appointment.id %}">Rendez Vous Terminé</a></td>
+            <td><a href="{% url 'details_utilisateur' appointment.client.id%}">Détails Client</a></td>
+        </tr>
+    {% endfor %}
+</table>
 {% endblock body %}

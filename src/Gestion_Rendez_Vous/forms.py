@@ -6,7 +6,7 @@ from django.utils import timezone
 import datetime
 
 class AppointmentForm(forms.ModelForm):
-    date = forms.ChoiceField(label="Date et heure du rendez-vous")
+    date = forms.ChoiceField(label="Date et heure du rendez-vous (Comptez environ 1 heure pour le rendez-vous)")
 
     class Meta:
         model = Appointment
@@ -27,7 +27,7 @@ class AppointmentForm(forms.ModelForm):
                 if current_hour > 16:
                     continue
                 current_time = datetime.datetime.combine(start, datetime.time(current_hour))
-                if current_time.hour < 12 or (current_time.hour == 12 and current_time.minute == 0) or current_time.hour >= 13:
+                if current_time.hour < 12 or current_time.hour >= 13:
                     if not Appointment.objects.filter(date=current_time).exists():
                         available_times.append((current_time.strftime("%Y-%m-%dT%H:%M"), current_time.strftime("%d/%m/%Y %H:%M")))
 

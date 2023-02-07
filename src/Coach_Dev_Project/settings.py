@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Gestion_Rendez_Vous',
     'Authentification',
+    'babel',
 ]
 
 MIDDLEWARE = [

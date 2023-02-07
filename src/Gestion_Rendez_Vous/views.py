@@ -27,3 +27,8 @@ def create_appointment(request):
 def liste_appointment(request):
     appointments = Appointment.objects.all()
     return render(request, 'Gestion_Rendez_Vous/listRdv.html', {'appointments': appointments})
+
+def delete_appointment(request, appointment_id):
+    appointment = Appointment.objects.get(id=appointment_id)
+    appointment.delete()
+    return redirect('appointment_list')
