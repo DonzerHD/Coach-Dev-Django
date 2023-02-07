@@ -16,12 +16,13 @@ class AppointmentForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['date'].widget.attrs.update({'class': 'form-control'})
         self.fields['description'].widget.attrs.update({'class': 'form-control'})
-        
-        
+
         # Generate list of available appointment times
         available_times = []
-        for i in range(360):
+        for i in range(70):
             start = timezone.now() + datetime.timedelta(days=i + 2)
+            if start.weekday() in [5, 6]:
+                continue
             for i in range(24):
                 current_hour = 9 + i
                 if current_hour > 16:

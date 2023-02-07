@@ -1,26 +1,30 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block head %}
-    <title>Mes Rendez-Vous</title>
+    <title>Mes Rendez-Vous avec les Patients</title>
+    <link rel="stylesheet" href="{% static "Gestion_Rendez_Vous/css/listRdv.css" %}">
 {% endblock head %}
 
 {% block body %}
-<h1>Liste des rendez-vous</h1>
-<table>
+<h1 id="appointments-title">Liste des rendez-vous</h1>
+<table class="appointments-table">
     <tr>
-        <th>Date et heure</th>
-        <th>Patient</th>
-        <th>Nom</th>
-        <th>Description</th>
+        <th class="date-column">Date et heure</th>
+        <th class="patient-column">Prénom</th>
+        <th class="name-column">Nom</th>
+        <th class="description-column">Description</th>
+        <th class="actions-column"></th>
+        <th class="actions-column"></th>
     </tr>
     {% for appointment in appointments %}
         <tr>
-            <td>{{ appointment.formatted_date }}</td>
-            <td>{{ appointment.client.username }}</td>
-            <td>{{ appointment.client.nom }}</td>
-            <td>{{ appointment.description }}</td>
-            <td><a href="{% url 'delete_appointment' appointment.id %}">Rendez Vous Terminé</a></td>
-            <td><a href="{% url 'details_utilisateur' appointment.client.id%}">Détails Client</a></td>
+            <td class="date-cell">{{ appointment.formatted_date }}</td>
+            <td class="patient-cell">{{ appointment.client.username }}</td>
+            <td class="name-cell">{{ appointment.client.nom }}</td>
+            <td class="description-cell">{{ appointment.description }}</td>
+            <td class="action-cell-a"><a href="{% url 'delete_appointment' appointment.id %}">Rendez Vous Terminé</a></td>
+            <td class="action-cell-b"><a href="{% url 'details_utilisateur' appointment.client.id%}">Détails Client</a></td>
         </tr>
     {% endfor %}
 </table>

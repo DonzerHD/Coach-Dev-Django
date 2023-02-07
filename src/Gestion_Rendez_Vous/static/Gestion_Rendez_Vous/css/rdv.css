@@ -31,3 +31,7 @@
     margin-top: 30px;
     cursor: pointer;
     }
+    
+    .swal-modal {
+        width: 70% !important;
+    }

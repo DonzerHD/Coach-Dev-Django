@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.dateformat import format
-from babel.dates import format_date
+from babel.dates import format_datetime
 
 from Authentification.models import User
 
@@ -15,4 +15,4 @@ class Appointment(models.Model):
         verbose_name_plural = "Rendez-vous"
         
     def formatted_date(self):
-        return format_date(self.date, locale='fr_FR')
+        return format_datetime(self.date, locale='fr_FR', format='dd MMMM YYYY à HH\'h\'mm')

@@ -22,7 +22,7 @@
        {% endif %}
        {% if request.user.role == "Utilisateur" %}
        <a href="{% url 'make_appointment' %}" class="nav-link">Prendre Rendez-Vous</a>
-       <a href="#" class="nav-link">Mes Rendez-Vous</a>
+       <a href="{% url 'appointments_view' %}" class="nav-link">Mes Rendez-Vous</a>
        {% endif %}
       <div class="dropdown">
         <button class="dropdown-toggle">{{ request.user.username }}<i class="fas fa-caret-down"></i></button>

@@ -1,3 +1,4 @@
+import time
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
@@ -31,4 +32,14 @@ def liste_appointment(request):
 def delete_appointment(request, appointment_id):
     appointment = Appointment.objects.get(id=appointment_id)
     appointment.delete()
+    if request.user.role != 'CREATOR':
+        return redirect('appointments_view')
     return redirect('appointment_list')
+
+@login_required
+def appointments_view(request):
+    appointments = Appointment.objects.filter(client=request.user)
+    context = {
+        'appointments': appointments
+    }
+    return render(request, 'Gestion_Rendez_Vous/rdv_utilisateur.html', context)
