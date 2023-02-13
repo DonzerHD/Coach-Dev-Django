@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Mes Rendez-Vous</title>
+<link rel="stylesheet" href="{% static "Gestion_Rendez_Vous/css/rdv_utilisateur.css" %}">
+{% endblock head %}
+
+{% block body %}
+
+<h1 id="appointments-title">Mes rendez-vous</h1>
+<!-- Rendez Vous head -->
+<table class="appointments-table">
+    <tr>
+        <th class="date-column">Date et heure</th>
+        <th class="description-column">Description</th>
+    </tr>
+    <!-- Rendez Vous body -->
+    {% for appointment in appointments %}
+        <tr>
+            <td class="date-cell">{{ appointment.formatted_date }}</td>
+            <td class="description-cell">{{ appointment.description }}</td>
+            <td class="action-cell"><a href="{% url 'delete_appointment' appointment.id %}">Annuler Rendez-Vous</a></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock body %}

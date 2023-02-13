@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Modification Profil</title>
+<link rel="stylesheet" href="{% static "Authentification/css/modification_utilisateur.css" %}">
+{% endblock head %}
+{% block body %}
+<h2>Modifier mon profil</h2>
+<!-- Formulaire de modification de profil -->
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Sauvegarder les modifications</button>
+</form>
+{% endblock body %}

@@ -1,0 +1,12 @@
+asgiref @ file:///opt/conda/conda-bld/asgiref_1661287532135/work
+Babel @ file:///croot/babel_1671781930836/work
+beautifulsoup4==4.11.1
+bs4==0.0.1
+certifi @ file:///croot/certifi_1671487769961/work/certifi
+Django @ file:///opt/conda/conda-bld/django_1661296381686/work
+django-localeurl==2.0.2
+install==1.3.5
+Pillow==9.3.0
+pytz==2022.7.1
+soupsieve==2.3.2.post1
+sqlparse @ file:///croot/sqlparse_1668793487206/work

@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block head %}
+<title>Prendre rendez-vous</title>
+<link rel="stylesheet" href="{% static "Gestion_Rendez_Vous/css/rdv.css" %}">
+<!-- Importation de la librairie SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock head %} 
+{% block body %}
+<h1>Prendre rendez-vous</h1>
+<form method="post">
+  <!-- Formulaire de prise de rendez-vous -->
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <input type="submit" value="Prendre rendez-vous" id="submitButton" />
+</form>
+<script src="{% static "Gestion_Rendez_Vous/js/rdv.js" %}"></script>
+{% endblock body %}

@@ -1,0 +1,76 @@
+/* Style pour la table */
+.appointments-table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+/* Style pour les en-têtes de colonne */
+.appointments-table th {
+  background-color: #168daa;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  text-align: center;
+}
+
+/* Style pour les cellules de données */
+.appointments-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+/* Style pour les cellules de date */
+.date-cell {
+  width: 15%;
+  text-align: center;
+}
+
+/* Style pour les cellules de patient */
+.patient-cell {
+  width: 10%;
+  text-align: center;
+}
+
+/* Style pour les cellules de nom */
+.name-cell {
+  width: 10%;
+  text-align: center;
+}
+
+/* Style pour les cellules de description */
+.description-cell {
+  width: 50%;
+  text-align: center;
+}
+
+/* Style pour les cellules d'actions */
+.action-cell {
+  width: 10%;
+  text-align: center;
+}
+
+/* Style pour les liens d'actions */
+.action-cell-a a {
+  display: block;
+  padding: 10px;
+  background-color: #2a5705;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.action-cell-b a {
+  display: block;
+  padding: 10px;
+  background-color: rgb(28, 136, 168);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Style pour le titre */
+#appointments-title {
+  text-align: center;
+  margin-bottom: 20px;
+}

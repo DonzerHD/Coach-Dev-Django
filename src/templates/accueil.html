@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static "css/accueil.css" %}"> 
+<title>Page d'accueil du coach personnel</title>
+{% endblock head%} {% block body %}
+<header>
+  <h1 class="header-title">Bienvenue sur ma page d'accueil</h1>
+</header>
+<!-- home main -->
+<main id="home-main">
+    <!-- Section d'introduction -->
+  <section class="intro-section">
+    <h2 class="section-title">Je me présente</h2>
+    <p>
+      Bonjour, je m'appelle Paul et je suis un coach en développement personnel.
+    </p>
+    <p>
+      Au fil des années, j'ai travaillé avec de nombreuses personnes pour les
+      aider à atteindre leurs objectifs et à vivre une vie plus épanouissante.
+    </p>
+    <p>
+      En tant que coach, je suis passionné par le développement personnel et je
+      suis toujours à la recherche de nouvelles techniques et de nouveaux moyens
+      pour aider les gens à atteindre leur potentiel.
+    </p>
+    <p>
+      Si vous cherchez à améliorer votre vie ou à atteindre vos objectifs, je
+      suis là pour vous aider.
+    </p>
+    <img
+      src="{% static 'images/image_accueil.jpg' %}"
+      alt="Image de présentation du site"
+      class="intro-img"
+    />
+  </section>
+    <!-- Section des services -->
+  <section class="benefits-section">
+    <h2 class="section-title">Les avantages d'avoir un coach personnel</h2>
+    <ul class="benefits-list">
+      <li>
+        Obtenir un objectif clair et concret : Avoir un coach personnel peut
+        aider à clarifier les objectifs de vie et les aspirations et à élaborer
+        un plan concret pour les atteindre.
+      </li>
+      <li>Suivi régulier pour vous motiver</li>
+      <li>
+        Améliorer la confiance en soi : En travaillant avec un coach personnel,
+        les personnes peuvent renforcer leur estime de soi, leur confiance en
+        leurs capacités et leur capacité à faire face aux défis.
+      </li>
+      <li>
+        Gagner en motivation : Le coaching personnel peut aider à trouver la
+        motivation pour faire les changements souhaités et poursuivre les
+        efforts pour atteindre les objectifs.
+      </li>
+      <li>
+        Établir de nouvelles habitudes positives : Les coachs peuvent aider à
+        établir de nouvelles habitudes positives
+      </li>
+    </ul>
+  </section>
+</main>
+{% endblock body %}

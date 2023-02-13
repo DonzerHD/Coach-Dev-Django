@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Connexion</title>
+<link rel="stylesheet" href="{% static "Authentification/css/login.css" %}">
+{% endblock head %}
+
+{% block body %}
+
+<!-- container login -->
+<div class="login-container">
+  <h1 class="login-title">Connexion</h1>
+  <!-- message d'erreur -->
+  <p class="message">{{ message }}</p>
+  <!-- formulaire de connexion -->
+  <form method="post" id="login-form">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <button type="submit" class="login-btn">Se connecter</button>
+      <!-- lien vers la page de création de compte -->
+      <a href="{% url 'create_user' %}" class="create-account-link">Créer un compte</a>
+  </form>
+  <p class='oubliemdp'>Si vous avez oublié votre mot de passe, veuillez contacter notre équipe d'assistance par email à l'adresse CoachAdmin@outlook.fr. Nous serons heureux de vous aider à réinitialiser votre mot de passe et à retrouver un accès sécurisé à votre compte.</p>
+</div>
+{% endblock body %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Création compte</title>
+    <link rel="stylesheet" href="{% static "Authentification/css/create_user.css" %}">
+{% endblock head %}
+
+{% block body %}
+<!-- create user form -->
+<div class="create-user-container">
+    <h1 class="create-user-title">Créer un compte</h1>
+    <!-- form -->
+    <form method="post" id="create-user-form">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="create-user-btn">Créer</button>
+    </form>
+  </div>
+  {% endblock body %}
