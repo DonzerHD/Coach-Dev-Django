@@ -1,36 +1,18 @@
-{% extends "base.html" %}
-{% load static %}
-
+{% extends "base.html" %} 
+{% load static %} 
 {% block head %}
-    <title>Prendre rendez-vous</title>
-    <link rel="stylesheet" href="{% static "Gestion_Rendez_Vous/css/rdv.css" %}">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-{% endblock head %}
-
+<title>Prendre rendez-vous</title>
+<link rel="stylesheet" href="{% static "Gestion_Rendez_Vous/css/rdv.css" %}">
+<!-- Importation de la librairie SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock head %} 
 {% block body %}
-    <h1>Prendre rendez-vous</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Prendre rendez-vous" id="submitButton">
-    </form>
-    <script>
-        document.getElementById("submitButton").addEventListener("click", function(){
-            swal("Votre rendez-vous a bien été confirmé!", {
-              buttons: {
-                confirm: {
-                  text: "OK",
-                  value: true,
-                  visible: true,
-                  className: "btn btn-primary",
-                  closeModal: true
-                }
-              }
-            }).then((value) => {
-                if (value) {
-                    window.location.href = "{% url 'accueil' %}";
-                }
-            });
-        });
-    </script>
+<h1>Prendre rendez-vous</h1>
+<form method="post">
+  <!-- Formulaire de prise de rendez-vous -->
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <input type="submit" value="Prendre rendez-vous" id="submitButton" />
+</form>
+<script src="{% static "Gestion_Rendez_Vous/js/rdv.js" %}"></script>
 {% endblock body %}

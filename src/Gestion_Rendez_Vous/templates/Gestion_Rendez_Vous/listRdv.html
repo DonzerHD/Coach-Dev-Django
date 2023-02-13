@@ -7,7 +7,9 @@
 {% endblock head %}
 
 {% block body %}
+<!-- Liste des rendez-vous -->
 <h1 id="appointments-title">Liste des rendez-vous</h1>
+<!-- Tableau des rendez-vous -->
 <table class="appointments-table">
     <tr>
         <th class="date-column">Date et heure</th>
@@ -17,6 +19,7 @@
         <th class="actions-column"></th>
         <th class="actions-column"></th>
     </tr>
+    <!-- Boucle pour afficher les rendez-vous -->
     {% for appointment in appointments %}
         <tr>
             <td class="date-cell">{{ appointment.formatted_date }}</td>

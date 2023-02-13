@@ -6,19 +6,23 @@
 <link rel="stylesheet" href="{% static "Authentification/css/details_utilisateur.css" %}">
 {% endblock head %}
 {% block body %}
+<!-- Details User -->
 <div id="user-details-container">
     <h1 class="user-details-title">Détails Clients</h1>
     <p class="user-username">Prénom : {{ user.username }}</p>
     <p class="user-username">Nom : {{ user.nom }}</p>
     <p class="user-username">Date de naissance : {{ user.born }}</p>
     <h2 class="user-history-title">Historique de notes</h2>
+    <!-- User Notes -->
     <ul class="user-notes-history">
       {% for note in user.notes.all %}
         <li class="user-note">{{ note.text }}</li>
         <li class="user-note-date">{{ note.formatted_date }}</li>
       {% endfor %}
     </ul>
+    <!-- Add Note -->
     <h2 class="add-note-title">Ajouter une note</h2>
+    <!-- Add Note Form -->
     <form id="add-note-form" method="post">
       {% csrf_token %}
       {{ form.as_p }}

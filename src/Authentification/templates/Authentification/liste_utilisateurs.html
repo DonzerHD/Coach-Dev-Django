@@ -8,15 +8,21 @@
 {% endblock head %}
 
 {% block body %}
+<!-- Liste des utilisateurs -->
 <div class="user-list-container">
     <h1 class="user-list-title">Liste des clients</h1>
+    <!-- Affichage du nombre d'utilisateurs -->
+    <p class="user-list-count">Nombre d'utilisateurs : {{ users.count }}</p>
+    <!-- Formulaire de recherche -->
     <form id="user-list-search-form" action="{% url 'liste_utilisateurs' %}" method="get">
       <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Barre de recherche">
       <input type="submit" value="Rechercher">
       <a href="{% url 'liste_utilisateurs' %}" class="user-list-all-btn">Tout afficher</a>
     </form>
+    <!-- Liste des utilisateurs -->
     <ul class="user-list">
       {% for user in users %}
+        <!-- Affichage des utilisateurs -->
         <li class="user-item">
           <p class="user-username">{{ user.username }}</p>
           <a class="user-details-btn" href="{% url 'details_utilisateur' user.id %}">Details</a>

@@ -20,6 +20,7 @@ from Gestion_Rendez_Vous.views import create_appointment , liste_appointment , d
 from .views import accueil
 from Authentification.views import login_page , logout_user , create_user, liste_utilisateurs , delete_user , details_utilisateur , update_profile
 
+"""Coach_Dev_Project URL Configuration"""
 urlpatterns = [
    # path('admin/', admin.site.urls),
     path('accueil/', accueil, name='accueil'),
@@ -35,4 +36,5 @@ urlpatterns = [
     path("delete_rdv/<int:appointment_id>/", delete_appointment, name="delete_appointment"),
     path("mes-rendez-vous/", appointments_view, name="appointments_view")
 ]
+
 

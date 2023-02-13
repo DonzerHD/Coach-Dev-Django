@@ -9,11 +9,13 @@
 {% block body %}
 
 <h1 id="appointments-title">Mes rendez-vous</h1>
+<!-- Rendez Vous head -->
 <table class="appointments-table">
     <tr>
         <th class="date-column">Date et heure</th>
         <th class="description-column">Description</th>
     </tr>
+    <!-- Rendez Vous body -->
     {% for appointment in appointments %}
         <tr>
             <td class="date-cell">{{ appointment.formatted_date }}</td>

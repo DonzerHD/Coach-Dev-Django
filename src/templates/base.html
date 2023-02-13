@@ -5,28 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
     <link rel="stylesheet" href="{% static "css/base.css" %}">
     
     {% block head %}{% endblock head %}
 </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar">
+      <!-- Logo -->
       <a href="{% url 'accueil' %}">
         <img src="{% static 'images/logo.png' %}" alt="Logo" id="logo">
       </a>
   {%  if user.is_authenticated %}
+        <!-- Si l'utilisateur est connecté -->
        <a href="{% url 'accueil' %}" class="nav-link">Accueil</a>
        {% if request.user.role == "CREATOR" %}
+       <!-- Si l'utilisateur est un créateur -->
         <a href="{% url 'liste_utilisateurs' %}" class="nav-link">Liste Clients</a>
         <a href="{% url 'appointment_list' %}" class="nav-link">Rendez-Vous Clients</a>
        {% endif %}
        {% if request.user.role == "Utilisateur" %}
+       <!-- Si l'utilisateur est un client -->
        <a href="{% url 'make_appointment' %}" class="nav-link">Prendre Rendez-Vous</a>
        <a href="{% url 'appointments_view' %}" class="nav-link">Mes Rendez-Vous</a>
        {% endif %}
       <div class="dropdown">
+        <!-- Dropdown -->
         <button class="dropdown-toggle">{{ request.user.username }}<i class="fas fa-caret-down"></i></button>
         <div class="dropdown-content">
+          <!-- Dropdown content -->
           <a href="{% url 'update' %}" class="dropdown-item">Modifier mon profil</a>
           <a href="{% url 'logout' %}" class="dropdown-item">Se déconnecter</a>
         </div>

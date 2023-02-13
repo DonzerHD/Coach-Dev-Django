@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def create_appointment(request):
+    """Création d'un rendez-vous"""
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
@@ -25,11 +26,15 @@ def create_appointment(request):
         form = AppointmentForm()
     return render(request, 'Gestion_Rendez_Vous/rdv.html', {'form': form})
 
+@login_required
 def liste_appointment(request):
+    """Liste des rendez-vous"""
     appointments = Appointment.objects.all()
     return render(request, 'Gestion_Rendez_Vous/listRdv.html', {'appointments': appointments})
 
+@login_required
 def delete_appointment(request, appointment_id):
+    """Suppression d'un rendez-vous"""
     appointment = Appointment.objects.get(id=appointment_id)
     appointment.delete()
     if request.user.role != 'CREATOR':
@@ -38,6 +43,7 @@ def delete_appointment(request, appointment_id):
 
 @login_required
 def appointments_view(request):
+    """Liste des rendez-vous d'un utilisateur"""
     appointments = Appointment.objects.filter(client=request.user)
     context = {
         'appointments': appointments

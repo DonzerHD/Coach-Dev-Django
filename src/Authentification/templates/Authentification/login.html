@@ -8,13 +8,17 @@
 
 {% block body %}
 
+<!-- container login -->
 <div class="login-container">
   <h1 class="login-title">Connexion</h1>
+  <!-- message d'erreur -->
   <p class="message">{{ message }}</p>
+  <!-- formulaire de connexion -->
   <form method="post" id="login-form">
       {{ form.as_p }}
       {% csrf_token %}
       <button type="submit" class="login-btn">Se connecter</button>
+      <!-- lien vers la page de création de compte -->
       <a href="{% url 'create_user' %}" class="create-account-link">Créer un compte</a>
   </form>
 </div>

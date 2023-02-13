@@ -2,39 +2,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  }
-  
-  .user-list-title {
+}
+
+.user-list-title {
   font-size: 2rem;
   margin-bottom: 1rem;
-  }
-  
-  #user-list-search-form {
+}
+
+#user-list-search-form {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 50%;
   margin-bottom: 1rem;
-  }
-  
-  #user-list-search-form input[type="text"] {
+}
+
+#user-list-search-form input[type="text"] {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid gray;
   border-radius: 5px;
   width: 60%;
-  }
-  
-  #user-list-search-form input[type="submit"] {
+}
+
+#user-list-search-form input[type="submit"] {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: lightgray;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  }
-  
-  .user-list-all-btn {
+}
+
+.user-list-all-btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: lightgray;
@@ -43,16 +43,16 @@
   cursor: pointer;
   text-decoration: none;
   color: black;
-  }
-  
-  .user-list {
+}
+
+.user-list {
   list-style: none;
   width: 50%;
   margin: 0;
   padding: 0;
-  }
-  
-  .user-item {
+}
+
+.user-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,14 +60,15 @@
   padding: 0.5rem;
   background-color: lightgray;
   border-radius: 5px;
-  }
-  
-  .user-username {
+}
+
+.user-username {
   font-size: 1.5rem;
   width: 60%;
-  }
-  
-  .user-details-btn, .user-delete-btn {
+}
+
+.user-details-btn,
+.user-delete-btn {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   background-color: gray;
@@ -75,4 +76,4 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  }
+}

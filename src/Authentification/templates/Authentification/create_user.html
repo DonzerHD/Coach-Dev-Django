@@ -7,8 +7,10 @@
 {% endblock head %}
 
 {% block body %}
+<!-- create user form -->
 <div class="create-user-container">
     <h1 class="create-user-title">Créer un compte</h1>
+    <!-- form -->
     <form method="post" id="create-user-form">
         {% csrf_token %}
         <div class="form-group">
