@@ -51,3 +51,11 @@ p {
   text-decoration: none;
   color: #333;
 }
+
+.oubliemdp {
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  text-align: center;
+  margin: 30px 0;
+  }

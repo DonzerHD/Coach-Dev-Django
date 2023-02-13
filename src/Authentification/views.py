@@ -47,7 +47,7 @@ def create_user(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
+            password = form.cleaned_data['password1']
             role = form.cleaned_data['role']
             born = form.cleaned_data['born']
             nom = form.cleaned_data['nom']
