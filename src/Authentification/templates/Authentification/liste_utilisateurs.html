@@ -25,6 +25,8 @@
         <!-- Affichage des utilisateurs -->
         <li class="user-item">
           <p class="user-username">{{ user.username }}</p>
+          <p class="user-nom">{{ user.nom }}</p>
+          <p class="user-born">{{ user.born}}</p>
           <a class="user-details-btn" href="{% url 'details_utilisateur' user.id %}">Details</a>
           <a class="user-delete-btn" href="{% url 'delete_user' user.id %}">Supprimer</a>
         </li>
