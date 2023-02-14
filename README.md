@@ -29,6 +29,10 @@ Exécutez la commande suivante pour démarrer le serveur de développement : `py
 
 Accédez à l'application en entrant http://localhost:8000/ dans votre navigateur web.
 
+## SuperUser
+- Pour accéder à l'administration du site, vous devez créer un compte SuperUser. Pour ce faire, exécutez la commande suivante dans votre terminal : `python manage.py createsuperuser` et suivez les instructions.
+- Ou un compte SuperUser est déjà créé dans la base de données voici ses identifiants son email : `AdminDev@outlook.fr` et mot de passe : `Admin`.
+
 ## Le compte Coach Admin est déjà créé dans la base de données
 
 - Il dispose d'un email `CoachAdmin@outlook.fr` et d'un mot de passe `Admin`.

@@ -11,17 +11,17 @@
 <!-- Liste des utilisateurs -->
 <div class="user-list-container">
     <h1 class="user-list-title">Liste des clients</h1>
-    <!-- Affichage du nombre d'utilisateurs -->
-    <p class="user-list-count">Nombre d'utilisateurs : {{ users.count }}</p>
     <!-- Formulaire de recherche -->
     <form id="user-list-search-form" action="{% url 'liste_utilisateurs' %}" method="get">
       <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Barre de recherche">
       <input type="submit" value="Rechercher">
+    <!-- Bouton pour afficher tous les utilisateurs -->
       <a href="{% url 'liste_utilisateurs' %}" class="user-list-all-btn">Tout afficher</a>
     </form>
     <!-- Liste des utilisateurs -->
     <ul class="user-list">
       {% for user in users %}
+      {% if user.is_superuser == False and user.role != 'CREATOR' %}
         <!-- Affichage des utilisateurs -->
         <li class="user-item">
           <p class="user-username">{{ user.username }}</p>
@@ -30,6 +30,7 @@
           <a class="user-details-btn" href="{% url 'details_utilisateur' user.id %}">Details</a>
           <a class="user-delete-btn" href="{% url 'delete_user' user.id %}">Supprimer</a>
         </li>
+      {% endif %}
       {% endfor %}
     </ul>
   </div>
