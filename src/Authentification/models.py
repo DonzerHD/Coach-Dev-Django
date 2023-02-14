@@ -9,7 +9,7 @@ class User(AbstractUser):
     """Email est utilisé comme identifiant"""
     email = models.EmailField(unique=True)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
     
     """Role est utilisé pour la gestion des droits"""
     role = models.CharField(max_length=30 , verbose_name='Rôle')

@@ -22,7 +22,7 @@ from Authentification.views import login_page , logout_user , create_user, liste
 
 """Coach_Dev_Project URL Configuration"""
 urlpatterns = [
-   # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('accueil/', accueil, name='accueil'),
     path('', login_page, name='login'),
     path('logout/', logout_user, name='logout'),
